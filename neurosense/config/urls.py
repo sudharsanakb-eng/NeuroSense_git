@@ -17,7 +17,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("neurosense.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
+    # path("accounts/", include("allauth.urls")),
     path("dashboard/",include("neurosense.app_dashboard.urls",namespace="dashboard")),
     path("core/",include("neurosense.app_core.urls",namespace="core")),
     path("user/",include("neurosense.app_user.urls",namespace="user")),
