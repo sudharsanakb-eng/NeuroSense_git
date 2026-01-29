@@ -6,6 +6,9 @@ from app_core.models import councellor
 def vcon(request):
     c=councellor.objects.filter(status='Accept')
     return render(request ,'conview.html',{'vdi':c})
-def vdetail(request):
-    c=councellor.objects.all()
+def vdetail(request,id):
+    c=councellor.objects.get(id=id)
     return render(request ,'details.html',{'vdi':c})
+def vapp(request):
+   
+    return render(request ,'appoinment.html')

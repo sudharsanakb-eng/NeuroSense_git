@@ -9,5 +9,6 @@ app_name="user"
 
 urlpatterns = [
 path('vcon/',views.vcon,name='vcon'),
-path('vdetail/',views.vdetail,name='vdetail'),
+path('vdetail/<int:id>',views.vdetail,name='vdetail'),
+path('vapp/',views.vapp,name='vapp'),
 ]

@@ -95,6 +95,7 @@ def con(request):
         gender=request.POST.get("gender")
         about=request.POST.get("desc")
         count=request.POST.get("count")
+        fee=request.POST.get("fee")
         
         if User.objects.filter(username=uname).exists():
             return HttpResponse("<script>alert('Already Exist');window.location='/dashboard/con';</script>")
@@ -115,6 +116,7 @@ def con(request):
         c.gender=gender
         c.user=User.objects.get(username=uname)
         c.desc=about
+        c.fee=fee
         if len(request.FILES) != 0:
             photo = request.FILES['img']
         else:

@@ -28,6 +28,7 @@ class councellor(models.Model):
     count=models.CharField(blank=True,null=True)
     statuschoices=[('Accept','Accept'),('Reject','Reject'),]
     status=models.CharField(choices=statuschoices,null=False,blank=False,default='Processing')
+    fee=models.CharField(blank=True,null=True)
 
 class Question(models.Model):
     question=models.CharField()
