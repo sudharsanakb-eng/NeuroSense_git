@@ -1,6 +1,6 @@
 
  {% load static %}
-  {% include "layout/partials/counsellor/header.html" %}
+  {% include "layout/partials/user/header.html" %}
      
      <!-- <section class="navbar navbar-default navbar-static-top" role="navigation">
           <div class="container">
@@ -77,9 +77,9 @@
                                    <h5>Description:-{{vdi.desc}}</h5>
                                    <h5>Daily Count:-{{vdi.count}}</h5>
                                    <h5>Fee:-{{vdi.fee}}</h5>
-                                   <div class="collapse navbar-collapse">
-                                   <button><li  class="appointment-btn"><a href="{% url 'user:vapp' i.id %}">Make An Appointment</a></li></button>
-                               </ul>
+                                   <div class="collapse navbar-collapse" style="    margin-top: 20px;">
+                                   <a href="{% url 'user:app' vdi.id %}"><button  class="appointment-btn-details">Make An Appointment</button> </a>
+                           
                </div>
                               
                               </div>
@@ -118,5 +118,5 @@
           </div>
      </section>
 
-{% include "layout/partials/counsellor/footer.html" %}
+{% include "layout/partials/user/footer.html" %}
          

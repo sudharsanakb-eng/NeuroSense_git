@@ -183,7 +183,8 @@ def vacc(request):
 
 def delete(request,id):
     r=councellor.objects.get(id=id)
-    r.delete()
+    r.status="Reject" 
+    r.save()
     return HttpResponse("<script>alert('Removed Successfully');window.location='/core/vcon/';</script>")
 
 def accept(request,id):

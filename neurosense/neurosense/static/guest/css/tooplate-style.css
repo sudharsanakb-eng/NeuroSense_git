@@ -334,7 +334,16 @@ http://www.tooplate.com/view/2098-health
     padding-top: 12px;
     padding-bottom: 12px;
   }
-
+.appointment-btn-details {
+    background: #a5c422;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 600;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: none;
+        padding: 10px;
+}
   .navbar-default .navbar-nav li.appointment-btn a:hover {
     background: #4267b2;
     color: #ffffff !important;

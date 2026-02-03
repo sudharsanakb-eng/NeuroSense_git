@@ -2,7 +2,7 @@
   {% include "layout/partials/counsellor/header.html" %}
 
      <!-- NEWS -->
-     <section id="news" data-stellar-background-ratio="2.5">
+     <section id="news" >
           <div class="container">
                <div class="row">
 
@@ -15,7 +15,7 @@
 
                    {% for i in vdi %}
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4">
                          <!-- NEWS THUMB -->
                          <div class="news-thumb wow fadeInUp" data-wow-delay="0.8s">
                               <a href="{% url 'user:vdetail' i.id %}">

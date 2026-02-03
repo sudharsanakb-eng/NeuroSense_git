@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login
 from app_dashboard.models import customer
 from app_core.models import Question, councellor
 from neurosense.users.models import User
+from django.core.mail import send_mail
 # Create your views here.
 def appdash(request):
     return render(request,"admin.html")
@@ -65,7 +66,8 @@ def cust(request):
         c.gender=gender
         c.user=User.objects.get(username=uname)
         c.save()
-        return HttpResponse("<script>alert('Insertion sucessfull');window.location='/dashboard/cust';</script>")
+        send_mail(subject="Regististration success", message=f"hii {name},\n Your account has created successfully..",from_email=None,recipient_list=[mail])
+        return HttpResponse("<script>alert('Insertion sucessfull');window.location='/dashboard/login';</script>")
     else:
         return render(request, "cuslogin.html")
     
