@@ -14,7 +14,6 @@
 
                     <form method="POST" id="bookingForm" action="{% url 'user:app' id %}">
                         {% csrf_token %}
-
                         <div class="mb-4">
                             <label class="form-label" style="font-weight: 600;">
                                 Choose Date
@@ -24,16 +23,12 @@
                                    id="dateInput"
                                    class="form-control"
                                    required
+                                   onchange="displaydate()"
                                    style="padding: 15px; border-radius: 10px; border: 2px solid #e8f2fd;">
                         </div>
 
                         <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-                            <h5 style="font-size: 1rem; color: #a5c422; font-weight: 700;">
-                                Counsellor Availability
-                            </h5>
-                            <small class="text-muted">
-                                Please select a date to continue
-                            </small>
+                        <button  class="appointment-btn-details">Confirm Booking</button> 
                         </div>
                     </form>
                 </div>
@@ -86,7 +81,7 @@
 
                         <div>
                             <h6 class="mb-0" style="font-weight: 700;">
-                                {{ councellor.user.username }}
+                                {{ councellor.user.name }}
                             </h6>
                             <small class="text-muted">
                                 {{ councellor.special }}
@@ -124,3 +119,10 @@
                     </div>
 
                     <!-- SUBMIT -->
+<script>
+    function displaydate(){
+        date=document.getElementById("dateInput").value
+        document.getElementById("displayDate").innerHTML=date
+
+    }
+</script>

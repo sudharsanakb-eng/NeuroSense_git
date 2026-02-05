@@ -1,9 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from app_core.models import councellor
 from app_dashboard.models import customer
-from app_user.models import appointment
+from app_user.models import appointment, payment
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from app_dashboard.models import customer
@@ -38,9 +38,7 @@ def app(request, id):
             appointmentdate=selected_date   # DateField accepts YYYY-MM-DD
         )
 
-        return HttpResponse(
-            "<script>alert('Booked');window.location='/dashboard/userdash';</script>"
-        )
+        return redirect('user:payments', appoint.id)
 
     # 4. Pass data to template
     return render(
@@ -52,4 +50,24 @@ def app(request, id):
             "id":id
         }
     )
+def payments(request,id):
+    c=appointment.objects.get(id=id)
+    return render(request  ,'payment.html',{'vdi':c})
+
+def payentry(request):
+    if request.method=='POST' :
+        date= request.POST.get('paymentdate')
+        amount=request.POST.GET('amount')
+        if payment.objects.filter(id=id).exists():
+            return HttpResponse("<script>alert('Booked Successfully');window.location='/core/userdash/';</script>")
+        pay=payment()
+        
+        pay.paymentdate=date
+        pay.amount=amount
+        pay.save()
+        return HttpResponse("<script>alert('Booked Successfully');window.location='/core/userdash/';</script>")
+    else:
+
+        return render(request,"payment.html")
+    
 
