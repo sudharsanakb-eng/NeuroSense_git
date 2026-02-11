@@ -79,7 +79,7 @@
                 <hr>
 
                 <!-- PAYMENT FORM -->
-                <form method="POST">
+                <form method="POST" action="{% url 'user:payentry' vdi.id %}">
                     {% csrf_token %}
 
                     <div class="mb-3">
@@ -105,8 +105,8 @@
                     </div>
 
                     <!-- Hidden values -->
-                    <input type="hidden" name="booking_id" value="{{ vdi.id }}">
-                    <input type="hidden" name="amount" value="{{ advance_amount }}">
+                    <input type="hidden" name="app_id" value="{{ vdi.id }}">
+                    <input type="hidden" name="amount" value="{{ vdi.councellor.councellor_set.first.fee }}">
 
                     <button type="submit" class="btn btn-payment w-100">
                         Pay 

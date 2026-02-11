@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from app_core.models import Question, category, councellor, district, location
 from app_dashboard.models import customer
+from neurosense.app_user.models import payment
 from neurosense.users.models import User
 
 
@@ -239,3 +240,8 @@ def qedit(request,qedit):
         
 #  return HttpResponse("<script>alert('Deleted Successfully');window.location='/home/vcat';</script>" )
     return render(request,'qedit.html',{'qedit':s})
+   
+
+def vappoint(request):
+    c=payment.objects.all()
+    return render(request ,'appoint.html',{'vdi':c})

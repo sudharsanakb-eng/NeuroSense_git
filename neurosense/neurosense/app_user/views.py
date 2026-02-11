@@ -1,3 +1,4 @@
+from datetime import date
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -54,20 +55,18 @@ def payments(request,id):
     c=appointment.objects.get(id=id)
     return render(request  ,'payment.html',{'vdi':c})
 
-def payentry(request):
-    if request.method=='POST' :
-        date= request.POST.get('paymentdate')
-        amount=request.POST.GET('amount')
-        if payment.objects.filter(id=id).exists():
-            return HttpResponse("<script>alert('Booked Successfully');window.location='/core/userdash/';</script>")
-        pay=payment()
-        
-        pay.paymentdate=date
-        pay.amount=amount
-        pay.save()
-        return HttpResponse("<script>alert('Booked Successfully');window.location='/core/userdash/';</script>")
-    else:
+def payentry(request, id):
+    if request.method == 'POST':
+        appointment_obj = appointment.objects.get(id=id)
+        amt=request.POST.get("amount")
+        councellor_obj = appointment_obj.councellor
 
-        return render(request,"payment.html")
-    
+        payment.objects.create(
+            appointmentid=appointment_obj,
+            paymentdate=date.today(),
+            amount=amt
+        )
 
+        return HttpResponse(
+            "<script>alert('Payment Successful');window.location='/dashboard/userdash/';</script>"
+        )

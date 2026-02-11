@@ -15,4 +15,4 @@ class appointment(models.Model):
 class payment (models.Model):
     appointmentid=models.ForeignKey(appointment, on_delete=models.CASCADE,related_name='appontment_id')
     paymentdate=models.DateField()
-    amount=models.ForeignKey(councellor, on_delete=models.CASCADE,related_name='amount')
+    amount=models.IntegerField()

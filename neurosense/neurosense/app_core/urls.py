@@ -27,5 +27,6 @@ urlpatterns = [
     path("qview/", views.qview),
     path('qdel/<int:ddel>',views.qdel,name='qdel'),
     path('qedit/<int:qedit>',views.qedit,name='qedit'),
+    path('vappoint/',views.vappoint,name='vappoint'),
 
 ]
