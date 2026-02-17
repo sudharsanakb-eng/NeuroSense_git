@@ -20,7 +20,9 @@ urlpatterns = [
     # path("accounts/", include("allauth.urls")),
     path("dashboard/",include("neurosense.app_dashboard.urls",namespace="dashboard")),
     path("core/",include("neurosense.app_core.urls",namespace="core")),
-    path("user/",include("neurosense.app_user.urls",namespace="user")),
+    path("patient/",include("neurosense.app_patient.urls",namespace="patient")),
+    path("councellor/",include("neurosense.app_councellor.urls",namespace="councellor")),
+
     # Your stuff: custom urls includes go here
     # ...
     # Media files

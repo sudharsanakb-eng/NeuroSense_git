@@ -84,7 +84,9 @@ LOCAL_APPS = [
     "neurosense.users",
     "neurosense.app_dashboard",
     "neurosense.app_core",
-    "neurosense.app_user",
+    "neurosense.app_patient",
+    "neurosense.app_councellor",
+
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

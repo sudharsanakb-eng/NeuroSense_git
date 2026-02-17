@@ -1,6 +1,6 @@
 from django.urls import path
 
-from neurosense.app_user import views
+from neurosense.app_patient import views
 
 
 app_name="user"

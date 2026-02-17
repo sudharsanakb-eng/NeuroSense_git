@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from app_core.models import Question, category, councellor, district, location
 from app_dashboard.models import customer
-from neurosense.app_user.models import payment
+from app_patient.models import Payment
 from neurosense.users.models import User
 
 
@@ -243,5 +243,5 @@ def qedit(request,qedit):
    
 
 def vappoint(request):
-    c=payment.objects.all()
+    c=Payment.objects.all()
     return render(request ,'appoint.html',{'vdi':c})

@@ -4,9 +4,9 @@ from django.shortcuts import redirect, render
 
 from app_core.models import councellor
 from app_dashboard.models import customer
-from app_user.models import appointment, payment
+from app_patient.models import Appointment,Payment
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.models import User
+from neurosense.users.models import User
 from app_dashboard.models import customer
 
 # Create your views here.
@@ -33,7 +33,7 @@ def app(request, id):
         selected_date = request.POST.get("date")  # from <input type="date" name="date">
 
         # 3. Create appointment
-        appoint = appointment.objects.create(
+        appoint = Appointment.objects.create(
             councellor=counc.user,          # counsellor is a User
             customer=request.user,          # logged-in User
             appointmentdate=selected_date   # DateField accepts YYYY-MM-DD
@@ -52,16 +52,16 @@ def app(request, id):
         }
     )
 def payments(request,id):
-    c=appointment.objects.get(id=id)
+    c=Appointment.objects.get(id=id)
     return render(request  ,'payment.html',{'vdi':c})
 
 def payentry(request, id):
     if request.method == 'POST':
-        appointment_obj = appointment.objects.get(id=id)
+        appointment_obj = Appointment.objects.get(id=id)
         amt=request.POST.get("amount")
         councellor_obj = appointment_obj.councellor
 
-        payment.objects.create(
+        Payment.objects.create(
             appointmentid=appointment_obj,
             paymentdate=date.today(),
             amount=amt
