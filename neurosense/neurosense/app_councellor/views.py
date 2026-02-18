@@ -7,5 +7,5 @@ from app_patient.models import Appointment
 
 
 def vcusto(request):
-    c=Appointment.objects.filter(status='Processing')
+    c=Appointment.objects.filter(councellor=request.user)
     return render(request ,'customer.html',{'vdi':c})

@@ -13,6 +13,10 @@ def appdash(request):
 def guest(request):
     return render(request,"guest.html")
 
+def userdash2(request):
+    return render(request,"userdash2.html") 
+
+
 def login_view(request):
     if request.method =='POST':
         name=request.POST.get("Name")
@@ -28,7 +32,7 @@ def login_view(request):
                     return HttpResponse("<script>alert('Verification pending..PLease wait!!!!!');window.location='/dashboard/counsellor/';</script>" )
 
             elif user.role=="User":
-                return HttpResponse("<script>alert('Login Successfully');window.location='/dashboard/userdash';</script>" )
+                return HttpResponse("<script>alert('Login Successfully');window.location='/dashboard/userdash2';</script>" )
             elif user.role=="admin":
                 return HttpResponse("<script>alert('Login Successfully');window.location='/dashboard/admin';</script>" )
         else:

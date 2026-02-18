@@ -24,7 +24,7 @@ urlpatterns = [
     path("accept/<int:id>",views.accept,name='accept'),
     path("vcust/",views.vcust,name='cust'),
     path("question/", views.ques, name='question'),
-    path("qview/", views.qview),
+    path("qview/", views.qview,name='qview'),
     path('qdel/<int:ddel>',views.qdel,name='qdel'),
     path('qedit/<int:qedit>',views.qedit,name='qedit'),
     path('vappoint/',views.vappoint,name='vappoint'),
