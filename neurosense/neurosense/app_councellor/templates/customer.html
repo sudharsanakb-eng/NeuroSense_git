@@ -11,7 +11,7 @@
                               <h2>Customer Details</h2>
                          </div>
                     </div>
-
+`                   {% for i in vdi %}
                     <div class="col-md-4 col-sm-6">
                          <!-- NEWS THUMB -->
                          <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
@@ -20,7 +20,7 @@
                               </a>
                               <div class="news-info">
                                    <!-- <span>March 08, 2018</span> -->
-                                   <h3><a href="news-detail.html">About Amazing Technology</a></h3>
+                                   <h3><a href="news-detail.html">{{i.customer.name}}</a></h3>
                                    <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>
                                    <div class="author">
                                         <img src="images/author-image.jpg" class="img-responsive" alt="">
@@ -32,6 +32,7 @@
                               </div>
                          </div>
                     </div>
+                    {% endfor %}
   <div class="col-md-4 col-sm-6">
                   
                         

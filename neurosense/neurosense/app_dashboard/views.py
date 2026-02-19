@@ -27,7 +27,7 @@ def login_view(request):
             if user.role=="councillor":
                 con=councellor.objects.get(user=user)
                 if con.status=="Accept":
-                    return HttpResponse("<script>alert('Login Successfully');window.location='/dashboard/counsellor/';</script>" )
+                    return HttpResponse("<script>alert('Login Successfully');window.location='/councellor/vcusto/';</script>" )
                 else:
                     return HttpResponse("<script>alert('Verification pending..PLease wait!!!!!');window.location='/dashboard/counsellor/';</script>" )
 
